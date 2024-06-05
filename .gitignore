@@ -35,3 +35,4 @@ po/*~
 rsconnect/
 *.html
 *_files/**
+**/*_files/**
