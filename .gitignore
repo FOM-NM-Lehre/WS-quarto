@@ -36,3 +36,5 @@ rsconnect/
 *.html
 *_files/**
 **/*_files/**
+**/.DS_Store
+.DS_Store
