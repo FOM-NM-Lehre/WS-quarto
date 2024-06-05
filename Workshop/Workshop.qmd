@@ -5,15 +5,13 @@ title: |
 #institute: "Hochschule Bochum"
 institute: "FOM"
 author: "Dipl.-Math. Norman Markgraf"
-lang: en
+lang: de
 slide-number: c
 format:
   revealjs:
-    toc: true
-    toc-expand: 2
-    toc-title: Outline
+    toc: false
+    mermaid-format: png
     footer: "Workshop: Quarto &nbsp; | &nbsp; Dipl.-Math. Norman Markgraf"
-    chalkboard: true
 #    embed-resources: true
     html-math-method: katex
     main-font: Arial
@@ -36,6 +34,8 @@ editor:
 
 ## Einleitung oder die Anwort auf: Was ist Quarto? {.bigger}
 
+\
+
 Quarto ist eine mehrsprachige, modernisierte Version von R Markdown und umfasst Dutzende neuer Funktionen und Möglichkeiten, während es gleichzeitig die meisten vorhandenen Rmd-Dateien (also R markdown Dateien) ohne Modifikation übersetzen kann.
 
 \
@@ -44,7 +44,11 @@ In diesem Workshop zeigen ich Ihnen, wie Sie Quarto verwenden.
 Sie werden Code und Markdown bearbeiten.
 Sie lernen, wie Sie mit jedem Rechendokument (z.B. R oder Python) umgehen, und das gerenderte Dokument im Viewer-Tab während Ihrer Arbeit anzeigen.
 
+-------------------------------------------------------------------------------
+
 ## Was ist Quarto ***nicht***?
+
+\
 
 *Quarto ist **kein** Wunderwerk.*\
 
@@ -73,7 +77,39 @@ Weder für Dozent:innen, noch für Lernende!
 Beide brauchen Anleitung und Hilfestellung!
 Ohne Schulung können wir hier keine guten Ergebnisse erwarten.
 
+-------------------------------------------------------------------------------
+
+## Die Installation von Quarto
+
+\
+
+1. Auf der Seite [Get Started](https://quarto.org/docs/get-started/) Seite von Quarto können Sie die _Quarto CLI_ für Ihr Betriebssystem herunterladen und Installieren.
+
+2. Zum Umwandeln von Quarto Dokumenten in R Studio bzw. posit.cloud brauchen Sie noch das R Paket `quarto`, welches Sie wie folgt in R installieren können:
+
+```{r}
+#| eval: false
+#| echo: true
+install.packages("quarto")
+```
+
+
+3. Falls Sie LaTeX benutzen wollen, können Sie es aus dem Terminal wie folgt installieren:
+
+```{sh}
+#| eval: false
+#| echo: true
+> quarto install tinytex
+```
+
+4. Im Verzeichnis `setup` habe ich ihnen mit `setup.R` ein kleines R Skript erstellt, welches die notwendigsten Pakete installiert.
+
+
+-------------------------------------------------------------------------------
+
 ## Der Weg der Quarto markdown Datei zum Ausgabeformat
+
+\
 
 ::: {layout-ncol="2"}
 ## In der R Welt (via `knitr`):
@@ -99,20 +135,21 @@ wissen wir , dass auch ein *Schweizer Taschenmesser* nicht alle Probleme optimal
 
 Wer nur ein Dokument erstellen will, mit einem festen Inhalt und dabei keine Berechnung (in R oder Python) braucht ist fast immer mit anderen Werkzeugen besser bedient.
 
+-------------------------------------------------------------------------------
+
 ## Der Weg der Quarto markdown Datei zum Ausgabeformat (Fortsetzung)
+
+\
 
 Wer aber aus einem Dokument u.U.
 mehrere Zielformate bespielen will.
 Wer umfangreiche Berechungen (in R oder Python) hat die dynamische Änderungen nach sich ziehen.
 Wer einen Weg sucht dieses, auf vorgefertigten Wegen, ohne viel *mehr* zu lernen erreichen will, der kommt am Quarto kaum vorbei.
 
-\
-
 Aber: **TANSTAAFL**[^1]
 
 [^1]: Nach Robert A. Heinlein aus seinem Roman `Revolte auf Luna`(1966) : „there ain't no such thing as a free lunch"
 
-\
 
 Da Quarto auf `pandoc` basiert hängen wir sehr stark von den Fähigkeit von `pandoc` ab.
 Das zeigt sich unter anderem bei den Ausgabeformaten PDF und Beamer.
@@ -121,9 +158,11 @@ Diese benutzen neben `pandoc` eben auch eine funktionierende (und gewartete) TeX
 \
 
 In der R-Welt können wir das u.U.
-mit dem Pakten [`tinytex`](https://yihui.org/tinytex/) erhalten.
+mit dem Paketen [`tinytex`](https://yihui.org/tinytex/) erhalten.
 Alternative können wir auch TeX (und damit auch LaTeX) über eine direkte Installation nutzbar machen.
 Informationen zu einer solchen Installation erhalten Sie bei [Dante e.V.](https://www.dante.de/installation-und-informationen-fuer-beginner/).
+
+-------------------------------------------------------------------------------
 
 ## Die Ausgabeformate (ein Überblick)
 
@@ -162,7 +201,11 @@ Informationen zu einer solchen Installation erhalten Sie bei [Dante e.V.](https:
 Und noch eine ganze Reihe weitere Formate.
 (Siehe [hier](https://quarto.org/docs/output-formats/all-formats.html))
 
+-------------------------------------------------------------------------------
+
 ## Ein erstes Dokument: Beispiel 1 - `hallo.qmd`
+
+\
 
 Der folgende Text ist ein Quarto-Dokument mit der Erweiterung .qmd (links) sowie die gerenderte Version als HTML (rechts).
 Sie können es auch in andere Formate wie PDF, MS Word usw.
@@ -172,14 +215,22 @@ rendern.
 ![](./images/TriffDiePinguine-1.png){width="70%"}
 :::
 
+-------------------------------------------------------------------------------
+
 ## Beispiel 1 (Fortsetzung)
 
-Dies ist das Grundidee für die Veröffentlichung mit Quarto -- nehmen Sie ein Quelldokument und wandeln[^2] Sie es in eine Vielzahl von Ausgabeformaten.
+\
+
+Dies ist das Grundidee für die Veröffentlichung mit Quarto -- nehmen Sie ein Quelldokument und wandeln[^2] Sie es in eine Vielzahl von Ausgabeformaten mit Quarto um.
 
 [^2]: Dieses `umwandeln` nennen wir auch `rendern`.
     ;-)
 
+-------------------------------------------------------------------------------
+
 ## Umwandeln oder Rendern {.smaller}
+
+\
 
 Die Schaltfläche "Rendern" in der RStudio-IDE (oder posit.cloud) können Sie nutzen um die Datei zu rendern und die Ausgabe mit einem einzigen Klick oder Tastaturkürzel (⇧⌘K) zu betrachten.
 
@@ -197,7 +248,11 @@ Die nebeneinander angeordnete Vorschau funktioniert sowohl für HTML- als auch P
 
 ![](./images/DerRenderOnSaveButton-1.png)
 
+-------------------------------------------------------------------------------
+
 ## Umwandeln oder Rendern (Fortsetzung)
+
+\
 
 Dokumente können auch über die R-Konsole mit dem Quarto-Paket gerendert werden:
 
@@ -210,7 +265,7 @@ quarto::quarto_render("hallo.qmd")
 
 Oder aber auch aus dem Terminal mit Hilfe der Quarto CLI
 
-``` shell
+``` sh 
 > quarto render hallo.qmd
 ```
 
@@ -220,7 +275,11 @@ Beim Rendern erzeugt Quarto eine neue Datei, die ausgewählten Text, Code und Er
 
 Die neue Datei kann ein [HTML](https://quarto.org/docs/output-formats/all-formats.html)-, [PDF](https://quarto.org/docs/output-formats/pdf-basics.html)-, [MS Word-Dokument](https://quarto.org/docs/output-formats/ms-word.html), eine [Präsentation](https://quarto.org/docs/presentations/), eine [Website](https://quarto.org/docs/websites/), ein [Buch](https://quarto.org/docs/books/), ein [interaktives Dokument](https://quarto.org/docs/interactive/) oder ein [anderes Format](https://quarto.org/docs/output-formats/all-formats.html) sein.
 
+-------------------------------------------------------------------------------
+
 ## Die Quarto CLI
+
+\
 
 Das *Quarto Command Line Interface* (kurz **Quarto CLI**) ermöglicht es auch außerhalb einer *Integrierten Entwicklungsumgebung* (kurz **IDE**) resp.
 R mit einem qmd Dokument zu arbeiten.
@@ -229,7 +288,7 @@ R mit einem qmd Dokument zu arbeiten.
 
 Eine Hilfe erhalten Sie mittels:
 
-``` shell
+``` sh 
 > quarto help
 ```
 
@@ -237,7 +296,7 @@ Eine Hilfe erhalten Sie mittels:
 
 Ein Quarto Projekt können Sie mit dem folgenden Befehl erstellen:
 
-``` shell
+``` sh 
 > quarto create project default Neues_Projekt
 ```
 
@@ -251,11 +310,15 @@ Mit diesem Befehl wird ein neues Verzeichnis mit dem Namen "Neues_Projekt" erzeu
 
 erzeugt.
 
+-------------------------------------------------------------------------------
+
 ## Die Quarto CLI (Fortsetzung)
+
+\
 
 Eine Quarto Markdown Datei (typischerweise mit der Endung `.qmd`) kann mittels Quarto CLI gerendert werden:
 
-``` shell
+``` sh 
 > quarto render Neues_Projekt.qmd
 ```
 
@@ -263,7 +326,7 @@ Eine Quarto Markdown Datei (typischerweise mit der Endung `.qmd`) kann mittels Q
 
 Sie können für die Ausgabe auch ein Aufgabeformat angeben:
 
-``` shell
+``` sh 
 > quarto render Neues_Projekt.qmd --to html
 ```
 
@@ -271,13 +334,19 @@ Sie können für die Ausgabe auch ein Aufgabeformat angeben:
 
 Wenn Sie anstatt eines Dokumentes ein Quarto Verzeichnis angeben, wir das gesamte Projekt übersetzt:
 
-``` shell
+``` sh 
 > quarto render Neues_Projekt
 ```
 
+-------------------------------------------------------------------------------
+
 ## Der (optionaler) YAML-Kopf
 
-Ein (optionaler) YAML-Kopf wird von drei Bindestrichen (- - -) an beiden Enden begrenzt.
+\
+
+Ein (optionaler) YAML^[[YAML](https://yaml.org) steht für "**Y**AML **A**in't **M**arkup **L**anguage" und dient hier dazu den Übersetzungs- bzw. Bearbeitungsprozess durch zusätzlichen Optionen zu steuern. Vgl. auch [YAML bei Wikipedia](https://de.wikipedia.org/wiki/YAML.)]-Kopf wird von drei Bindestrichen (- - -) an beiden Enden begrenzt.
+
+\
 
 ```{yaml}
 #| echo: true
@@ -289,12 +358,20 @@ editor: visual
 ---
 ```
 
+\
+
 Beim Übersetzen wird der Titel "Hallo Quarto!" oben im übersetzen Dokument mit einer größeren Schriftgröße als der Rest des Dokuments angezeigt.
 Die anderen beiden YAML-Felder geben an, dass die Ausgabe im HTML-Format erfolgen soll und das Dokument standardmäßig im visuellen Editor geöffnet werden soll.
 
+-------------------------------------------------------------------------------
+
 ## (optinaler) YAML-Kopf (Fortsetung)
 
-Die grundlegende Syntax von YAML verwendet Schlüssel-Wert-Paare im Format "Schlüssel: Wert" (engl. `key:value`).
+\
+
+Die grundlegende Syntax von YAML verwendet Schlüssel-Wert-Paare im Format "Schlüssel: Wert" (engl. `key: value`).
+
+\
 
 Andere YAML-Felder, die häufig in Kopfzeilen von Dokumenten gefunden werden, umfassen Metadaten wie Autor (`author`), Untertitel (`subtitle`), Datum (`date`) sowie Anpassungsoptionen wie Thema (`theme`), Schriftfarbe (`fontcolor`), Abbildungsweite (`fig-width`) usw.
 
@@ -304,21 +381,31 @@ Die verfügbaren YAML-Felder variieren je nach Dokumentformat, z.
 B.
 siehe [hier](https://quarto.org/docs/reference/formats/pdf.html) für YAML-Felder für PDF-Dokumente, [hier](https://quarto.org/docs/reference/formats/docx.html) für MS Word und [hier](https://quarto.org/docs/reference/formats/odt.html) für das OpenDocument Format ([LibreOffice](https://de.libreoffice.org) oder [Apache OpenOffice](https://www.openoffice.org/de/)).
 
+-------------------------------------------------------------------------------
+
 ## Markdown Basics
 
+\
+
 Quarto basiert auf `pandoc` und verwendet dessen Variante von Markdown als zugrunde liegende Dokumentensyntax.
-`Pandoc`-Markdown ist eine erweiterte und leicht überarbeitete Version der \[Markdown-Syntax von John Gruber}(https://daringfireball.net/projects/markdown/).
+`Pandoc`-Markdown ist eine erweiterte und leicht überarbeitete Version der [Markdown-Syntax von John Gruber](https://daringfireball.net/projects/markdown/).
 
 \
 
 > A Markdown-formatted document should be publishable as-is, as plain text, without looking like it's been marked up with tags or formatting instructions.
 > -- [John Gruber](https://daringfireball.net/projects/markdown/syntax#philosophy)
 
+\
+
 Im folgenden finden Sie Beispiele für die am häufigsten verwendete Markdown-Syntax.
 
 Eine vollständige Dokumentation von Pandocs Markdown finden Sie [hier](https://pandoc.org/MANUAL.html#pandocs-markdown).
 
+-------------------------------------------------------------------------------
+
 ## Text Formatierung
+
+\
 
 | **Markdown Syntax** | Ausgabe |
 |---------------------|---------|
@@ -327,8 +414,11 @@ Eine vollständige Dokumentation von Pandocs Markdown finden Sie [hier](https://
 | \~\~durchgestrichen\~\~                    |  ~~durchgestrichen~~       |
 | \`verbatim code\`                    | `verbatim code`        |
 
+-------------------------------------------------------------------------------
+
 ## Kopfzeilen
 
+\
 
 | **Markdown Syntax** | Ausgabe |
 |---------------------|---------|
@@ -338,7 +428,11 @@ Eine vollständige Dokumentation von Pandocs Markdown finden Sie [hier](https://
 | \#\#\#\# Kopf 4 | `<h4>Kopf 4</h4>`{=html} |
 | \#\#\#\#\# Kopf 5 | `<h5>Kopf 5</h5>`{=html} |
 
+-------------------------------------------------------------------------------
+
 ## Links & Bilder
+
+\
 
 | **Markdown Syntax** | Ausgabe |
 |---------------------|---------|
@@ -347,26 +441,70 @@ Eine vollständige Dokumentation von Pandocs Markdown finden Sie [hier](https://
 | `![Beschreibung](elephant.png)`| ![Beschreibung](./images/elephant.png){width=30%} |
 | `[![Beschreibung](elephant.png)](https://quarto.org)` | [![Beschreibung](./images/elephant.png){width=30%} ](https://quarto.org)|
 
+-------------------------------------------------------------------------------
 
 ## Listen I/II 
+
+\
 
 ![](./images/Listen-1.png)
 
 ## Listen II/II 
 
+\
+
 ![](./images/Listen-2.png)
 
-## Listen (Wichtig!)
+## Listen (**Wichtig!**)
 
-**Wichtig:** Im Gegensatz zu anderen Markdown-Renderern (insbesondere Jupyter und GitHub) müssen Listen in Quarto eine vollständige Leerzeile oberhalb der Liste und unterhalbe der Liste haben!
+\
+
+Im Gegensatz zu anderen Markdown-Renderern (insbesondere Jupyter und GitHub) müssen Listen in Quarto eine vollständige Leerzeile oberhalb und unterhalb der Liste haben!
+
+\
 
 Andernfalls wird die Liste nicht als Liste erkannt und nicht in Listenform gerendert.
+
 Sie erscheint damit als normaler Text in einer einzigen Zeile.
+
+\
+
+::: {layout-ncol=2}
+
+-------------------------------------------------------------------------------
+
+### Richtig!
+```default
+Text
+
+- Das ist eine Liste
+- Und die geht hier weiter
+- Und weiter ...
+
+Text
+````
+
+### Falsch!
+```
+Text
+- Das ist eine Liste
+- Und die geht hier weiter
+- Und weiter ...
+Text
+```
+:::
+
+-------------------------------------------------------------------------------
 
 ## Tabellen
 
-**Markdown Syntax:**
-```
+\
+
+::: {layout-ncol=2}
+
+### Markdown Syntax:
+
+```default
 | Right | Left | Default | Center |
 |------:|:-----|---------|:------:|
 |   12  |  12  |    12   |    12  |
@@ -374,26 +512,32 @@ Sie erscheint damit als normaler Text in einer einzigen Zeile.
 |    1  |    1 |     1   |     1  |
 ```
 
-**Ausgabe:**
+### Ausgabe:
 
 | Right | Left | Default | Center |
 |------:|:-----|---------|:------:|
 |   12  |  12  |    12   |    12  |
 |  123  |  123 |   123   |   123  |
 |    1  |    1 |     1   |     1  |
+
+:::
+
+-------------------------------------------------------------------------------
 
 ## Quellcode
+
+\
 
 Sie können mit [\`\`\`]{.code} einen Codeblock begrenzen:
 
 \ 
 
 
-[\`\`\`]{.code}
+````default
 ```
 code
 ```
-[\`\`\`]{.code}
+````
 
 
 \
@@ -402,56 +546,68 @@ Durch die Angabe einer Sprache aktivieren Sie die passende Syntax-Herforhebung:
 
 \
 
-\`\`\`python
+````python
 ```python
 1 + 1 
 ```
-\`\`\`
+````
 
+\
 
 Pandoc unterstützt die Syntaxhervorhebung für über 140 verschiedene Programmiersprachen.
 Wenn Ihre Sprache nicht unterstützt wird, können Sie die Standardsprache `default` verwenden, um eine ähnliche visuelle Darstellung zu erhalten:
 
+-------------------------------------------------------------------------------
+
 ## Roh-Inhalte
 
-Unverarbeiteter Inhalt, also ein Roh-Inhalt, kann direkt eingefügt werden, ohne dass Quarto ihn übersetzt, indem `pandocs` raw-Attribut verwendet wird. 
+\
+
+Ein Roh-Inhalt kann direkt eingefügt werden ohne dass Quarto ihn übersetzt. 
+Dazu wird ein `pandocs` raw-Attribut verwendet. 
 
 Ein raw-Block beginnt mit ` ```{=` gefolgt von einem Format und schließt mit `}`, z. B. hier ist ein raw HTML-Block:
 
-```
-` ``{=html}
+````default
+```{=html}
 <iframe src="https://quarto.org/" width="500" height="400"></iframe>
-` ``
 ```
+````
 
 \
 
 Für PDF Ausgaben können wir Roh-(La)TeX Blöcke einfügen:
 
-```
-` ``{=latex}
+````default
+```{=latex}
 \renewcommand*{\labelitemi}{\textgreater}
-` ``
 ```
+````
+
+\
 
 Neben Blöcken können Sie auch sogenannten inline Code einfügen:
 
-```
+```default
 Here's some raw inline HTML: `<a>html</a>`{=html}
 ```
 
+-------------------------------------------------------------------------------
+
 ## Mathematische Gleichungen
 
-Verwenden Sie $-Begrenzer für Inline-Mathematik und $$-Begrenzer für Display-Mathematik. Zum Beispiel:
+\
+
+Verwenden Sie \$-Begrenzer für Inline-Mathematik und \$\$-Begrenzer für Display-Mathematik. Zum Beispiel:
 
 | **Markdown Syntax** | Ausgabe |
 |---------------------|---------|
 | Inline math: \$E = mc^{2}\$ | Inline math: $E = mc^{2}$ |
-| Display math: $$E = mc^{2}$$ | Display math: $$E = mc^{2}$$ |
+| Display math: \$\$E = mc^{2}\$\$ | Display math: $$E = mc^{2}$$ |
 
-Für eigene TeX-Macros können Sie den $$-Begrenzer in einem `.hidden` Block nutzen:
+Für eigene TeX-Macros können Sie den \$\$-Begrenzer in einem `.hidden` Block nutzen:
 
-```
+```default
 ::: {.hidden}
 $$
  \def\RR{{\bf R}}
@@ -460,35 +616,171 @@ $$
 :::
 ```
 
+-------------------------------------------------------------------------------
+
+## Mathematische Gleichungen
+
+\
+
 **Beachten Sie:**
 
-Für HTML benutzt pandoc in der Regel [`MathJax`](https://docs.mathjax.org/). Ich empfehle Ihnen aber [`KaTeX`](https://katex.org) zu nutzen. Dazu können Sie im YAML Kopf die folgende Zeile einfügen:
+Für HTML benutzt pandoc in der Regel [`MathJax`](https://docs.mathjax.org/). Ich empfehle Ihnen aber [`KaTeX`](https://katex.org) zu nutzen.
+Dazu können Sie im YAML-Kopf die folgende Zeile einfügen:
+
+\
 
 ```yaml
 format:
   html:
     html-math-method: katex
+```
+
+-------------------------------------------------------------------------------
+
+## Diagramme
+
+\
+
+Quarto unterstützt das Einbetten von [Mermaid](https://mermaid-js.github.io/mermaid/#/)- und [Graphviz](https://graphviz.org/)-Diagrammen nativ. Dies ermöglicht es Ihnen, Flussdiagramme, Sequenzdiagramme, Zustandsdiagramme, Gantt-Diagramme und mehr mit einer Klartextsyntax zu erstellen, die von Markdown inspiriert ist.
+
+\
+
+Zum Beispiel betten wir hier ein mit Mermaid erstelltes Flussdiagramm ein:
+
+::: {layout-ncol=2}
+
+###
+
+````default
+```{mermaid}
+flowchart LR
+  A[Hard edge] --> B(Round edge)
+  B --> C{Decision}
+  C --> D[Result one]
+  C --> E[Result two]
+```
 ````
+
+### 
+
+```{mermaid}
+flowchart LR
+  A[Hard edge] --> B(Round edge)
+  B --> C{Decision}
+  C --> D[Result one]
+  C --> E[Result two]
+```
+
+:::
+
+Mehr finden sie [hier](https://quarto.org/docs/authoring/diagrams.html).
+
+-------------------------------------------------------------------------------
+
+## Videos
+
+Videos können in Dokumente einfügen, indem Sie den `{ {< video >} }`-Shortcode verwenden. Zum Beispiel betten wir hier ein YouTube-Video ein:
+
+\
+
+::: {layout-ncol=2}
+
+### 
+
+```default
+{ {< video https://www.youtube.com/embed/wo9vZccmqwc >} }
+```
+
+###
+
+::: {.center}
+{{< video https://www.youtube.com/embed/wo9vZccmqwc >}}
+:::
+
+:::
+
+Videos können auf Videodateien (z.B. MPEG) verweisen oder Links zu auf YouTube, Vimeo oder Brightcove veröffentlichten Videos sein. 
+
+\
+
+Mehr zu dem Thema finden sie [hier](https://quarto.org/docs/authoring/videos.html).
+
+-------------------------------------------------------------------------------
+
+## Seitenumbrüche
+
+Der pagebreak-Shortcode ermöglicht es Ihnen, einen nativen Seitenumbruch in ein Dokument einzufügen (z.B. in LaTeX wäre dies ein \\newpage, in MS Word ein docx-nativer Seitenumbruch, in HTML eine page-break-after: always CSS-Direktive, usw.):
+
+\
+
+```default
+
+Seite 1
+
+{ {< pagebreak >} }
+
+Seite 2
+
+```
+
+\
+
+Native Seitenumbrüche werden für HTML, LaTeX, Context, MS Word, Open Document und ePub unterstützt (für andere Formate wird ein Form-Feed-Zeichen \\f eingefügt).
+
+-------------------------------------------------------------------------------
+
+## Callout Blöcke
+
+::: {layout-ncol=2}
+
+### Markdown-Syntax:
+
+```
+:::{.callout-note}
+Note that there are five types of callouts, including: 
+`note`, `tip`, `warning`, `caution`, and `important`.
+:::
+```
+
+### Ausgabe:
+
+:::{.callout-note}
+Note that there are five types of callouts, including: 
+`note`, `tip`, `warning`, `caution`, and `important`.
+:::
+
+:::
+
+Mehr zu diesem Thema _Callout Blocks_ finden sie [hier](https://quarto.org/docs/authoring/callouts.html).
+
+-------------------------------------------------------------------------------
 
 
 ## Die Datei "\_quarto.yml"
 
-...
+Die Datei "\_quarto.yml" im Hauptverzeichnis kann zusätzliche Optionen im YAML Syntax enthalten und wird vor dem jeweiligen YAML-Kopf der qmd-Datei geladen und verarbeitet.
 
-## Quarto in Entwicklungsumgebungen
+Die in der Datei hinterlegten Optionen werden somit von jeder in dem Verzeichnis gelegenden qmd-Datei übernommen.
 
--   posit
+\
 
--   RStudio
+Ein Beispiel einer "\_quarto.yaml" Datei:
 
--   Visual Code
+```yaml
+title: |
+       | Eine kurze Einführung
+       | Workshop: Quarto
+institute: "FOM"
+author: "Dipl.-Math. Norman Markgraf"
+lang: de
+format:
+  html:
+    html-math-method: katex
+```
 
-## Unterschiede R markdown und Quarto markdown
+\
 
-...
+So können Sie aus einem Verzeichnis unterschiedliche Dokument, zum Beispiel für Tagesfolien für eine Veranstaltungsreihe, immer mit den selber YAML Informationen füttern.
 
-## Installation von Quarto
 
--   Installation Quarto CLI
 
--   Installation der Quarto Packete unter R
