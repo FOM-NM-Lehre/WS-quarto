@@ -1,7 +1,7 @@
 ---
 title: "Wirtschaftinformatik ist unwichtig!"
 subtitle: "Ein Streitpapier"
-autor: "Walther von der Vogelweide"
+author: "Walther von der Vogelweide"
 date: 1510-10-25
 lang: de
 format:
