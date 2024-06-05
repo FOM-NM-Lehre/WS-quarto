@@ -53,7 +53,7 @@ section.slide.level2 {
  Gehört zu section.slide und hält recht genug Platz frei für das Logo.
  Zusätzlich wird der Text mit "..." an der rechten Seite abgeschnitten.
 */
-.reveal .slide h2 {
+.reveal .slide h2:not(.default) {
   background-image: url("../../../../../images/layout/fom-kopfzeile.png");
   background-repeat: no-repeat;
   background-position: top;
