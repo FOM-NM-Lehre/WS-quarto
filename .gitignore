@@ -38,3 +38,4 @@ rsconnect/
 **/*_files/**
 **/.DS_Store
 .DS_Store
+**/*.ipynb
