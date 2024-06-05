@@ -782,5 +782,7 @@ format:
 
 So können Sie aus einem Verzeichnis unterschiedliche Dokument, zum Beispiel für Tagesfolien für eine Veranstaltungsreihe, immer mit den selber YAML Informationen füttern.
 
+## Beispiel 2: Mehrere qmd Dateien mit einer "\_quarto.yaml" Datei
 
+Im Verzeichnis "Beispiel-2" 
 
