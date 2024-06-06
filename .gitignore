@@ -42,3 +42,6 @@ rsconnect/
 Beispiel 3/Dokument.docx
 Beispiel 3/Dokument.html
 Beispiel 3/Dokument.pdf
+Workshop/.gitignore
+Beispiel 4/**
+Workshop/Workshop.pdf
