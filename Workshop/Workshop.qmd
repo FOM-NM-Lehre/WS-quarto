@@ -987,5 +987,19 @@ Sicher sind viele Fragen noch offen. -- Falls Sie auch noch nicht gleich eine zu
 
 Sie erreichen mich unter [norman.markgraf@fom-net.de](mailto:norman.markgraf@fom-net.de?subject=Quarto-Workshop-2024)!
 
+Die (jeweils) aktuelle Version dieses Workships finden Sie im GutHub-Repository unter <https://github.com/FOM-NM-Lehre/WS-quarto.git>
+
+Copyright in 2024 by Norman Markgraf. 
+
+Dieses Werk steht unter der [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode.de) Lizenz!
+
+::: {.center}
+
+[![](./images/by-nc-nd.png){width="30%"}](https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode.de) 
+
+:::
+
+
+\
 Vielen Dank für Ihre Aufmerksamkeit.
 
