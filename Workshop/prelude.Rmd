@@ -11,4 +11,5 @@ if (knitr::is_html_output()) knitr::knit_hooks$set(
   }
 )
 
+# knitr::knit_engines$set(yaml = knitr::knit_engines$get("js"))
 ```
