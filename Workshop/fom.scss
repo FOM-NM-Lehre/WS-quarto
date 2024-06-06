@@ -66,11 +66,16 @@ section.slide.level2 {
   color: #FFFFFF;
 }
 
-.reveal p, 
-.reveal .slides section {
-  font-size: 45px;
+.reveal code {
+  font-size: 40px;
 }
 
+.reveal p, 
+.reveal .slides section {
+  
+}
+
+.reveal .slide code,
 .reveal .slide p,
 .reveal .slide ol,
 .reveal .slide ul {

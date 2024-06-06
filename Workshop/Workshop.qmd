@@ -1,8 +1,7 @@
 ---
 title: |
-       | Eine kurze Einführung
        | Workshop: Quarto
-#institute: "Hochschule Bochum"
+subtitle: "Eine kurze Reise von der Idee zum Dokument"
 institute: "FOM"
 author: "Dipl.-Math. Norman Markgraf"
 lang: de
@@ -12,9 +11,9 @@ format:
     toc: false
     mermaid-format: png
     footer: "Workshop: Quarto &nbsp; | &nbsp; Dipl.-Math. Norman Markgraf"
-#    embed-resources: true
     html-math-method: katex
     main-font: Arial
+    monofont: "Courier New" #Roboto
 # 16x10 : 1920 x 1200 (Apple macOS)
 # 16x 9 : 1920 x 1080 (?)
     width: 1920
@@ -247,7 +246,7 @@ Die nebeneinander angeordnete Vorschau funktioniert sowohl für HTML- als auch P
 
 \
 
-Umwandel mittels R-Konsole und dem R-Paket `quarto` der Datei in ein PDF-Dokument:
+Umwandeln mittels R-Konsole und dem R-Paket `quarto` der Datei in ein PDF-Dokument:
 
 ```{r}
 #| echo: true
@@ -772,10 +771,12 @@ Native Seitenumbrüche werden für HTML, LaTeX, Context, MS Word, Open Document 
 
 ### Markdown-Syntax:
 
-```
+```default
 :::{.callout-note}
-Note that there are five types of callouts, including: 
-`note`, `tip`, `warning`, `caution`, and `important`.
+Note that there are five 
+types of callouts, including: 
+`note`, `tip`, `warning`, 
+`caution`, and `important`.
 :::
 ```
 
@@ -794,7 +795,7 @@ Note that there are five types of callouts, including:
 
 ### Markdown-Syntax:
 
-```
+```default
 :::{.callout-important icon=false}
 ## Sehr Wichtig!
 Dieser Hinweis ist sehr Wichtig!
