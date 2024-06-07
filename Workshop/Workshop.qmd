@@ -109,11 +109,11 @@ install.packages("quarto")
 \
 
 ::: {layout-ncol="2"}
-## In der R Welt (via `knitr`):
+### In der R Welt (via `knitr`):
 
 ![](./images/rstudio-qmd-how-it-works.png)
 
-## In der restlichen Welt (via `Jupyter`)
+### In der restlichen Welt (via `Jupyter`)
 
 ![](./images/qmd-how-it-works.png)
 :::
@@ -204,7 +204,7 @@ Der folgende Text ist ein Quarto-Dokument mit der Erweiterung `.qmd` (links) sow
 Sie können es auch in andere Formate wie PDF, MS Word usw. rendern.
 
 ::: center
-![](./images/TriffDiePinguine-1.png){width="70%"}
+![](./images/TriffDiePinguine-1.png){.nostretch fig-align="center" width="70%"}
 :::
 
 -------------------------------------------------------------------------------
@@ -361,9 +361,7 @@ Ein (optionaler) YAML^[[YAML](https://yaml.org) steht für "**Y**AML **A**in't *
 
 \
 
-```{yaml}
-#| echo: true
-#| eval: false
+```yaml
 ---
 title: "Hallo Quarto!"
 format: html
@@ -388,9 +386,7 @@ Die grundlegende Syntax von YAML verwendet Schlüssel-Wert-Paare im Format "Schl
 
 YAML-Felder, die häufig in Kopfzeilen von Dokumenten gefunden werden, umfassen Metadaten wie Autor (`author`), Untertitel (`subtitle`), Datum (`date`) sowie Anpassungsoptionen wie Thema (`theme`), Schriftfarbe (`fontcolor`), Abbildungsweite (`fig-width`) usw.
 
-```{yaml}
-#| echo: true
-#| eval: false
+```yaml
 ---
 title: "Hallo Quarto"
 subtitle: "Eine kurze Einführung"
@@ -476,22 +472,142 @@ Eine vollständige Dokumentation von Pandocs Markdown finden Sie [hier](https://
 |:--------------------|:------------|
 | `<http://quarto.org>` | <http://quarto.org> |
 | `[Quarto](http://quarto.org)` | [Quarto](http://quarto.org) |
-| `![Beschreibung](elephant.png)`| ![Beschreibung](./images/elephant.png){width=30%} |
-| `[![Beschreibung](elephant.png)](https://quarto.org)` | [![Beschreibung](./images/elephant.png){width=30%} ](https://quarto.org)|
+| `![Beschreibung](elephant.png)`| ![Beschreibung](./images/elephant.png){.nostretch width=30%} |
+| `[![Beschreibung](elephant.png)](https://quarto.org)` | [![Beschreibung](./images/elephant.png){.nostretch width=30%} ](https://quarto.org)|
 
 -------------------------------------------------------------------------------
 
 ## Listen I/II 
 
-\
+::: {layout="[[55,45], [55,45], [55,45], [55,45]]"}
 
-![](./images/Listen-1.png)
+### Markdown-Synatax
+---
+
+### Ausgabe
+---
+
+### 
+```r
+* ungeortnete Liste
+    + Unterpunkt 1
+    + Unterpunkt 2
+        - Unter-Unterpunkt 1
+```
+
+### 
+
+* ungeortnete Liste
+    + Unterpunkt 1
+    + Unterpunkt 2
+        - Unter-Unterpunkt 1
+
+
+### 
+```r
+* Punkt 2
+
+   Weiter in diesem Punkt mit 4 
+   Leerzeichen am Zeilenanfang.
+
+```
+
+### 
+* Punkt 2
+
+   Weiter in diesem Punkt mit 4 
+   Leerzeichen am Zeilenanfang.
+
+
+### 
+```r
+
+1. Geordnete Liste
+2. Unterpunkt 2
+    i) Unterpunkt 1
+        A) Unter-Unterpunkt 1
+
+```
+
+### 
+
+1. Geordnete Liste
+2. Unterpunkt 2
+    i) Unterpunkt 1
+        A) Unter-Unterpunkt 1
+
+:::
+
 
 ## Listen II/II 
 
-\
+::: {layout="[[55,45], [55,45], [55,45], [55,45]]"}
 
-![](./images/Listen-2.png)
+### Markdown-Synatax
+---
+
+### Ausgabe
+---
+
+### 
+```r
+(@)   Eine Liste die hier starte
+
+geht weiter 
+
+(@)   nach einer Unterbrechung
+```
+
+### 
+::: {}
+(@)   Eine Liste die hier starte
+
+geht weiter 
+
+(@)   nach einer Unterbrechung
+:::
+
+
+
+### 
+```r
+::: {}
+1. Eine Liste
+:::
+
+::: {}
+1. Gefolgt von einer anderen Liste
+:::
+```
+
+### 
+
+::: {}
+::: {}
+1. Eine Liste
+:::
+
+::: {}
+1. Gefolgt von einer zweiten Liste
+:::
+:::
+
+
+### 
+```r
+Ausdruck
+: Definition
+```
+
+### 
+
+::: {}
+Ausdruck
+: Definition
+:::
+
+:::
+
 
 ## Listen (**Wichtig!**)
 
@@ -715,7 +831,8 @@ Mehr finden sie [hier](https://quarto.org/docs/authoring/diagrams.html).
 
 ## Videos
 
-Videos können in Dokumente einfügen, indem Sie den `{{{< video >}}}`-Shortcode verwenden. Als Beispiel betten wir hier ein YouTube-Video ein:
+Videos können in Dokumente einfügen, indem Sie den `{{{< video >}}}`-Shortcode verwenden. 
+Als Beispiel betten wir hier ein YouTube-Video ein:
 
 \
 
@@ -756,6 +873,7 @@ Seite 1
 {{{< pagebreak >}}}
 
 Seite 2
+
 
 ```
 
@@ -857,7 +975,7 @@ Im Verzeichnis "Beispiel 2" haben Sie eine kleine Anwendung für eine "_quarto.y
 \
 
 In dem Ordner befinden sich zwei 'Vorlesungs'-Dateien. Beide gehören zur selben Vorlesung und haben viele der Meta-Daten (u.a. Titel, Sub-Titel und Autor) gemeinsam. 
-Daher ist es sinnvoll diese aus den qmd-Dateien in die "_quarto.yaml" auszulagern.
+Daher ist es sinnvoll diese aus den qmd-Dateien in die "_quarto.yml" auszulagern.
 
 \
 
@@ -981,25 +1099,43 @@ Einen sehr kleinen Einstieg in das Thema dient die folgende ...
 
 ## Wir sind am Ende ...
 
-... eines kleinen Einstiegs in Quarto angelangt. 
+\ 
+... unserer kleinen Reise von der Idee zum Dokument mit Quarto angelangt. 
+
+\
 
 Sicher sind viele Fragen noch offen. -- Falls Sie auch noch nicht gleich eine zur Hand haben, aber später dennoch Fragen wollen:
 
+\
+
 Sie erreichen mich unter [norman.markgraf@fom-net.de](mailto:norman.markgraf@fom-net.de?subject=Quarto-Workshop-2024)!
+
+\
 
 Die (jeweils) aktuelle Version dieses Workships finden Sie im GutHub-Repository unter <https://github.com/FOM-NM-Lehre/WS-quarto.git>
 
-Copyright in 2024 by Norman Markgraf. 
+::: {.callout-important}
+### WICHTIG!
 
-Dieses Werk steht unter der [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode.de) Lizenz!
+::: {layout-ncol=2}
+###
+::: {}
+Copyright in 2024 by Norman Markgraf all right reserved!
 
-::: {.center}
-
-[![](./images/by-nc-nd.png){width="30%"}](https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode.de) 
-
+Weitergabe im ganzen erwünscht! Verwendung, auch auszugsweise,
+unterliegt der nebenstehenden Lizenzvereinbarung!
 :::
 
+###
+::: {}
+Dieses Werk steht unter der [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode.de) Lizenz!
+
+[![](./images/by-nc-nd.png){.nostretch fig-align="center" width="30%"}](https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode.de) 
+:::
+:::
+:::
 
 \
+
 Vielen Dank für Ihre Aufmerksamkeit.
 
