@@ -11,3 +11,6 @@ Copyright in 2024 by Norman Markgraf -- Weitergabe nur unter der vollständigen 
 
 
 Diese Unterlagen sind **NICHT** Eigentum der FOM! Es besteht auch explizit KEIN alleiniger Nutzungsanspruch von Seiten der FOM!
+
+Sie möchten die Unterlagen in einem anderen Design? -- Sprechen Sie mich an!
+
